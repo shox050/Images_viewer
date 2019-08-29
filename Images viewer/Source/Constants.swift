@@ -10,6 +10,6 @@ import Foundation
 
 struct Constants {
     struct Identifiers {
-        
+        static let networkQueue = "NetworkExecutionQueue"
     }
 }
