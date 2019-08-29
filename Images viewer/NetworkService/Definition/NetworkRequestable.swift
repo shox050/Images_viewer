@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NetworkRequestable {
-    func getPhotos(forNumber page: Int, perPage count: Int, _ completion: @escaping (Result<[PhotoResponse], Error>) -> Void)
+    func getPhotos(forNumberPage page: Int, perPage count: Int, _ completion: @escaping (Result<[PhotoResponse], Error>) -> Void)
 }

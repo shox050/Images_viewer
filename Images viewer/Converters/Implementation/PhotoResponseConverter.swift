@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PhotoConverter: PhotoResponseConvertable {
+class PhotoResponseConverter: PhotoResponseConvertable {
     
-    func convert(_ photoResponse: [PhotoResponse]) -> [Photo]? {
+    func convert(_ photoResponse: [PhotoResponse]) -> [Photo] {
         
         let photos = photoResponse.compactMap { photoResponse -> Photo in
             

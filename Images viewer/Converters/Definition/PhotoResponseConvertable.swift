@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PhotoResponseConvertable {
-    func convert(_ photoResponse: [PhotoResponse]) -> [Photo]?
+    func convert(_ photoResponse: [PhotoResponse]) -> [Photo]
 }

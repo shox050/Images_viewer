@@ -25,6 +25,7 @@
 		E77A17102317B0EE0078FFAE /* PhotoResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A170F2317B0ED0078FFAE /* PhotoResponseConverter.swift */; };
 		E77A17122317B1000078FFAE /* PhotoResponseConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17112317B1000078FFAE /* PhotoResponseConvertable.swift */; };
 		E77A17142317D60D0078FFAE /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17132317D60D0078FFAE /* NetworkRequestable.swift */; };
+		E77A17192317DE9B0078FFAE /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17182317DE9B0078FFAE /* PhotosViewModel.swift */; };
 		E7FC025723178602000AC22B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC025623178602000AC22B /* Endpoint.swift */; };
 		E7FC025923178613000AC22B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC025823178613000AC22B /* NetworkService.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		E77A170F2317B0ED0078FFAE /* PhotoResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponseConverter.swift; sourceTree = "<group>"; };
 		E77A17112317B1000078FFAE /* PhotoResponseConvertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponseConvertable.swift; sourceTree = "<group>"; };
 		E77A17132317D60D0078FFAE /* NetworkRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestable.swift; sourceTree = "<group>"; };
+		E77A17182317DE9B0078FFAE /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		E7FC025623178602000AC22B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E7FC025823178613000AC22B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				E77A17052317AC630078FFAE /* Models */,
 				E77A16F023178BD30078FFAE /* Encoder */,
 				E7FC0253231785C4000AC22B /* NetworkService */,
+				E77A17152317DE6B0078FFAE /* ViewModels */,
 				E7FC0252231785B2000AC22B /* Controllers */,
 				E7FC0251231785A0000AC22B /* Storyboards */,
 				E7FC025023178590000AC22B /* Application */,
@@ -243,6 +246,30 @@
 				E77A170F2317B0ED0078FFAE /* PhotoResponseConverter.swift */,
 			);
 			path = Implementation;
+			sourceTree = "<group>";
+		};
+		E77A17152317DE6B0078FFAE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E77A17172317DE8D0078FFAE /* Definition */,
+				E77A17162317DE840078FFAE /* Implementation */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E77A17162317DE840078FFAE /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				E77A17182317DE9B0078FFAE /* PhotosViewModel.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		E77A17172317DE8D0078FFAE /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Definition;
 			sourceTree = "<group>";
 		};
 		E7FC025023178590000AC22B /* Application */ = {
@@ -420,6 +447,7 @@
 				E77A16EF23178A690078FFAE /* NetworkServiceConfiguration.swift in Sources */,
 				E767CA342317842800C99C48 /* PhotosViewController.swift in Sources */,
 				E7FC025923178613000AC22B /* NetworkService.swift in Sources */,
+				E77A17192317DE9B0078FFAE /* PhotosViewModel.swift in Sources */,
 				E77A170B2317B0550078FFAE /* Constants.swift in Sources */,
 				E77A1702231795F90078FFAE /* PhotoCell.swift in Sources */,
 				E77A1704231797690078FFAE /* PhotoResponse.swift in Sources */,
