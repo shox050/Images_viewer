@@ -81,6 +81,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Une-Kb-g0A"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zY1-a1-Cac"/>
+                                    <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="SwR-kt-vac"/>
                                 </connections>
                             </collectionView>
                         </subviews>
