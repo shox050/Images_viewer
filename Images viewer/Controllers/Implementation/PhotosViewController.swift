@@ -10,45 +10,38 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
+    private var selectPhoto: Photo?
+    
     private let photosViewModel = PhotosViewModel()
     
     @IBOutlet private weak var cvPhotos: UICollectionView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getPhotos()
-    }
-}
-
-extension PhotosViewController {
-    private func getPhotos() {
-        DispatchQueue.global().async { [weak self] in
-            
+        photosViewModel.getPhotos { [weak self] in
             guard let this = self else { return }
             
-            this.photosViewModel.getPhotos {
-                
-                DispatchQueue.main.sync {
-                    this.cvPhotos.reloadData()
-                }
-                
-                this.photosViewModel.getImage { index in
-                    
-                    let indexPath = IndexPath(row: index, section: 0)
-                    
-                    let image = this.photosViewModel.imageCache.object(forKey: NSString(string: this.photosViewModel.photos[index].id))
-                    this.photosViewModel.photos[index].image = image
-                    
-                    DispatchQueue.main.async {
-                        this.cvPhotos.reloadItems(at: [indexPath])
-                    }
-                }
+            DispatchQueue.main.sync {
+                this.cvPhotos.reloadData()
             }
+            
+            this.photosViewModel.getImage { index in
+                let indexPath = IndexPath(row: index, section: Constants.ParametersCollectionView.numberOfSections)
+                this.cvPhotos.reloadItems(at: [indexPath])
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVc = segue.destination as? PhotoViewController {
+            
         }
     }
 }
 
+
+// MARK: - UICollectionViewDataSource
 extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photosViewModel.photos.count
@@ -60,19 +53,19 @@ extension PhotosViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        // TODO: - cell.configure
         cell.configure(byPhoto: photosViewModel.photos[indexPath.row])
         
         return cell
     }
 }
 
+// MARK: - UICollectionViewDataSourcePrefetching
 extension PhotosViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         print("prefetchItemsAt indexPaths: \(indexPaths)")
-        
-        if photosViewModel.photos.count - indexPaths[0].row == 5 {
-            getPhotos()
+    
+        photosViewModel.preFetchingPhotos(byIndexPaths: indexPaths) {
+            collectionView.reloadData()
         }
     }
 }
@@ -80,11 +73,15 @@ extension PhotosViewController: UICollectionViewDataSourcePrefetching {
 
 // MARK: - UICollectionViewDelegate
 extension PhotosViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print("didEndDisplaying cell at indexPath ", indexPath)
-        photosViewModel.photos[indexPath.row].image = nil
+        photosViewModel.photoDidEndDisplaying(byIndexPath: indexPath)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        selectPhoto = photosViewModel.photos[indexPath.row]
+        performSegue(withIdentifier: Constants.SegueIdentifiers.showPhotoVC, sender: self)
+    }
 }
 

@@ -9,9 +9,19 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
+
+    
+    var photoViewModel: PhotoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+}
+
+
+extension PhotoViewController {
+    func configure(withConfiguration configuration: PhotoConfiguration) {
+        photoViewModel = PhotoViewModel(configuration.photo)
     }
 }

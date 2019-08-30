@@ -13,9 +13,23 @@ struct Constants {
         static let networkQueue = "NetworkExecutionQueue"
         static let photoQueue = "PhotoExecutionQueue"
         static let collectionCell = "PhotoCell"
+        static let noImage =  "noImage.png"
+    }
+    
+    struct SegueIdentifiers {
+        static let showPhotoVC = "ShowPhotoViewController"
     }
     
     struct ParametersRequest {
         static let photosPerPage = 20
+        static let prefetchingOffset = 5
+    }
+    
+    struct PrefetchingParameters {
+        static let offset = 5
+    }
+    
+    struct ParametersCollectionView {
+        static let numberOfSections = 0
     }
 }
