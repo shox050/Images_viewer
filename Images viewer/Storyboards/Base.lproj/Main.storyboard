@@ -97,7 +97,7 @@
                     <navigationItem key="navigationItem" title="Photos" id="zhf-VT-pnW"/>
                     <connections>
                         <outlet property="cvPhotos" destination="5fy-qT-GQy" id="OD7-xb-Gen"/>
-                        <segue destination="K8r-HB-BVF" kind="show" id="h0h-sg-GvX"/>
+                        <segue destination="K8r-HB-BVF" kind="show" identifier="ShowPhotoViewController" id="h0h-sg-GvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -116,7 +116,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Download time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ev-Ea-2gQ">
-                                <rect key="frame" x="20" y="841" width="114" height="21"/>
+                                <rect key="frame" x="20" y="841" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -132,6 +132,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lJh-gS-TLG"/>
                     </view>
+                    <connections>
+                        <outlet property="ivPhoto" destination="vYY-d7-YW3" id="GQY-BZ-Amk"/>
+                        <outlet property="lDownloadTime" destination="5Ev-Ea-2gQ" id="gOA-tE-FxO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGM-Wg-Yr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

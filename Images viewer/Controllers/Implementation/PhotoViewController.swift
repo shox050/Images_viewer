@@ -10,12 +10,17 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
+    @IBOutlet private weak var ivPhoto: UIImageView!
+    @IBOutlet private weak var lDownloadTime: UILabel!
+    
     
     var photoViewModel: PhotoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ivPhoto.image = photoViewModel.image
+        lDownloadTime.text = photoViewModel.downloadDate
     }
 }
 

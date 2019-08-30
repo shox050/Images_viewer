@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
-    private var selectPhoto: Photo?
+    private var selectedPhoto: Photo?
     
     private let photosViewModel = PhotosViewModel()
     
@@ -34,8 +34,8 @@ class PhotosViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVc = segue.destination as? PhotoViewController {
-            
+        if let destinationVc = segue.destination as? PhotoViewController, let photo = selectedPhoto {
+            destinationVc.configure(withConfiguration: PhotoConfiguration(photo: photo))
         }
     }
 }
@@ -74,13 +74,14 @@ extension PhotosViewController: UICollectionViewDataSourcePrefetching {
 // MARK: - UICollectionViewDelegate
 extension PhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("didEndDisplaying at ", indexPath)
         photosViewModel.photoDidEndDisplaying(byIndexPath: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        selectPhoto = photosViewModel.photos[indexPath.row]
+        selectedPhoto = photosViewModel.photos[indexPath.row]
         performSegue(withIdentifier: Constants.SegueIdentifiers.showPhotoVC, sender: self)
     }
 }

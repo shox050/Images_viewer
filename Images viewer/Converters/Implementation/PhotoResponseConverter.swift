@@ -21,11 +21,14 @@ class PhotoResponseConverter: PhotoResponseConvertable {
             let alternativeDescription = photoResponse.alternativeDescription
             let photoUrl = photoResponse.photoUrl.regular
             var photo: UIImage?
+            let date = Date()
+            
+            
             
             return Photo(id: id, created: created, updated: updated,
                          photoDescription: photoDescription,
                          alternativeDescription: alternativeDescription,
-                         photoUrl: photoUrl, image: photo)
+                         photoUrl: photoUrl, image: photo, downloadDate: date)
         }
         
         return photos

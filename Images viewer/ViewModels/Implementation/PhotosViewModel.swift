@@ -97,6 +97,8 @@ class PhotosViewModel {
     
     
     func photoDidEndDisplaying(byIndexPath indexPath: IndexPath) {
-        photos[indexPath.row].image = nil
+        if indexPath.row > 2 {
+            photos[indexPath.row].image = nil
+        }
     }
 }
