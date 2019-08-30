@@ -46,7 +46,7 @@ class PhotoViewModel {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         
-        return dateFormatter.string(from: photo.downloadDate)
+        return "Download time: \(dateFormatter.string(from: photo.downloadDate))"
     }
     
     init(_ photo: Photo) {

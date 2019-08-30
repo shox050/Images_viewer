@@ -19,6 +19,7 @@ class PhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         photosViewModel.getPhotos { [weak self] in
             guard let this = self else { return }
             
@@ -84,5 +85,11 @@ extension PhotosViewController: UICollectionViewDelegate {
         selectedPhoto = photosViewModel.photos[indexPath.row]
         performSegue(withIdentifier: Constants.SegueIdentifiers.showPhotoVC, sender: self)
     }
+}
+
+
+// MARK: - UICollectionViewFlowLayout
+extension PhotosViewController: UICollectionViewFlowLayout {
+    
 }
 

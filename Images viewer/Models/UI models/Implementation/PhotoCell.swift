@@ -19,16 +19,33 @@ class PhotoCell: UICollectionViewCell, Configurable {
     
     func configure(byPhoto photo: Photo) {
         
+
+        
         lDescription.sizeToFit()
         if let text = lDescription.text, text.isEmpty {
             lDescription.isHidden = true
         }
         
         ivPhoto.image = photo.image
-        lPhotoId.text = photo.id
-        lDataCreated.text = photo.created
-        lDataUpdated.text = photo.updated
-        lDescription.text = "\(String(describing: photo.photoDescription))\n\(String(describing: photo.alternativeDescription))"
+        lPhotoId.text = "Photo id: \(photo.id)"
+        lDataCreated.text = "Created: \(photo.created)"
+        lDataUpdated.text = "Updated: \(photo.updated)"
+        lDescription.text = createDescription(byPhoto: photo)
         
+    }
+    
+    private func createDescription(byPhoto photo: Photo) -> String {
+        
+        var description = "Description:"
+        
+        if let photoDescription = photo.photoDescription {
+            description += " \(photoDescription)"
+        }
+        
+        if let alternativeDescription = photo.alternativeDescription {
+            description += " \(alternativeDescription)"
+        }
+        
+        return description
     }
 }
