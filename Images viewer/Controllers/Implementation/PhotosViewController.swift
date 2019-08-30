@@ -33,14 +33,15 @@ extension PhotosViewController {
                     this.cvPhotos.reloadData()
                 }
                 
-                this.photosViewModel.getPhoto { index in
+                this.photosViewModel.getImage { index in
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     
+                    let image = this.photosViewModel.imageCache.object(forKey: NSString(string: this.photosViewModel.photos[index].id))
+                    this.photosViewModel.photos[index].image = image
+                    
                     DispatchQueue.main.async {
-                        this.cvPhotos.performBatchUpdates({
-                            this.cvPhotos.reloadItems(at: [indexPath])
-                        }, completion: nil)
+                        this.cvPhotos.reloadItems(at: [indexPath])
                     }
                 }
             }
@@ -77,7 +78,13 @@ extension PhotosViewController: UICollectionViewDataSourcePrefetching {
 }
 
 
-extension PhotoViewController: UICollectionViewDelegate {
+// MARK: - UICollectionViewDelegate
+extension PhotosViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("didEndDisplaying cell at indexPath ", indexPath)
+        photosViewModel.photos[indexPath.row].image = nil
+    }
     
 }
 

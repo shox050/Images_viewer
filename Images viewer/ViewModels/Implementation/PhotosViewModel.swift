@@ -12,6 +12,7 @@ class PhotosViewModel {
     
     var photos: [Photo] = []
     var newPhotos: [Photo] = []
+    let imageCache = NSCache<NSString, UIImage>()
     
     var numberPage = 1
     let perPage = Constants.ParametersRequest.photosPerPage
@@ -42,46 +43,34 @@ class PhotosViewModel {
     }
     
     // TODO: - Need refactoring.
-    func getPhoto(_ completion: @escaping (Int) -> Void) {
+    func getImage(_ completion: @escaping (Int) -> Void) {
         newPhotos.forEach { photo in
-            // TODO: - rename downloadPhoto to downloadImage
-            networkService.downloadPhoto(byPath: photo.photoUrl, { [weak self] response in
+            
+            networkService.downloadImage(byPath: photo.photoUrl, { [weak self] response in
                 guard let this = self else { return }
                 
                 switch response {
                 case .success(let data):
-                    guard let image = UIImage(data: data) else {
+                    guard let image = this.imageParser.parseImage(fromData: data) else {
                         print("Parse image get nil")
                         return
                     }
                     
-
-                    this.photoQueue.async(flags: .barrier, execute: {
-                        guard let index = this.photos.firstIndex(where: {
-                            $0.id == photo.id
-                        }) else { return }
-                        this.photos[index].photo = image
-                        completion(index)
-                    })
+                    this.imageCache.setObject(image, forKey: NSString(string: photo.id))
+                    
+                    guard let index = this.photos.firstIndex(where: {
+                        $0.id == photo.id
+                    }) else { return }
+                    completion(index)
                     
                 case .failure(let error):
                     print("Download photo get error ", error)
                 }
             })
         }
+    }
+    
+    func preFetching() {
         
-//        networkService.downloadPhoto(byPath: path) { [weak self] response in
-//            guard let this = self else { return }
-//            switch response {
-//            case .success(let data):
-//                guard let image = this.imageParser.parseImage(fromData: data) else {
-//                    print("Parse image get nil")
-//                    return
-//                }
-//                completion(image)
-//            case .failure(let error):
-//                print("Download photo get error ", error)
-//            }
-//        }
     }
 }

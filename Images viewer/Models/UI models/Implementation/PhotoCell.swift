@@ -24,7 +24,7 @@ class PhotoCell: UICollectionViewCell, Configurable {
             lDescription.isHidden = true
         }
         
-        ivPhoto.image = photo.photo
+        ivPhoto.image = photo.image
         lPhotoId.text = photo.id
         lDataCreated.text = photo.created
         lDataUpdated.text = photo.updated

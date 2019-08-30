@@ -49,7 +49,7 @@ class NetworkService: NetworkRequestable {
         }
     }
     
-    func downloadPhoto(byPath path: String, _ completion: @escaping (Result<Data, Error>) -> Void) {
+    func downloadImage(byPath path: String, _ completion: @escaping (Result<Data, Error>) -> Void) {
         
         guard let url = URL(string: path) else {
             return
