@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewModel {
+class PhotosViewModel: PhotosModel {
     
     var photos: [Photo] = []
     var newPhotos: [Photo] = []

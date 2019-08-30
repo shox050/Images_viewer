@@ -30,6 +30,10 @@
 		E77A171D2317F1E40078FFAE /* ImageParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A171C2317F1E40078FFAE /* ImageParsable.swift */; };
 		E77A172123198B230078FFAE /* PhotoConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A172023198B220078FFAE /* PhotoConfiguration.swift */; };
 		E77A172323198D850078FFAE /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A172223198D850078FFAE /* PhotoViewModel.swift */; };
+		E77A17262319BE0A0078FFAE /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17252319BE0A0078FFAE /* PhotosModel.swift */; };
+		E77A17292319BEA90078FFAE /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17282319BEA90078FFAE /* PhotoModel.swift */; };
+		E77A172B2319BF290078FFAE /* PhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A172A2319BF290078FFAE /* PhotosController.swift */; };
+		E77A172D2319BF700078FFAE /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A172C2319BF700078FFAE /* PhotoController.swift */; };
 		E7FC025723178602000AC22B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC025623178602000AC22B /* Endpoint.swift */; };
 		E7FC025923178613000AC22B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FC025823178613000AC22B /* NetworkService.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +66,10 @@
 		E77A171C2317F1E40078FFAE /* ImageParsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParsable.swift; sourceTree = "<group>"; };
 		E77A172023198B220078FFAE /* PhotoConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConfiguration.swift; sourceTree = "<group>"; };
 		E77A172223198D850078FFAE /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		E77A17252319BE0A0078FFAE /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		E77A17282319BEA90078FFAE /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		E77A172A2319BF290078FFAE /* PhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosController.swift; sourceTree = "<group>"; };
+		E77A172C2319BF700078FFAE /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
 		E7FC025623178602000AC22B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E7FC025823178613000AC22B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +175,8 @@
 		E77A16F8231791120078FFAE /* Definition */ = {
 			isa = PBXGroup;
 			children = (
+				E77A172A2319BF290078FFAE /* PhotosController.swift */,
+				E77A172C2319BF700078FFAE /* PhotoController.swift */,
 			);
 			path = Definition;
 			sourceTree = "<group>";
@@ -280,6 +290,8 @@
 		E77A17172317DE8D0078FFAE /* Definition */ = {
 			isa = PBXGroup;
 			children = (
+				E77A17252319BE0A0078FFAE /* PhotosModel.swift */,
+				E77A17282319BEA90078FFAE /* PhotoModel.swift */,
 			);
 			path = Definition;
 			sourceTree = "<group>";
@@ -457,17 +469,21 @@
 				E77A16F223178BE30078FFAE /* DictionaryEncoder.swift in Sources */,
 				E7FC025723178602000AC22B /* Endpoint.swift in Sources */,
 				E77A16FE231794CE0078FFAE /* PhotoCell.swift in Sources */,
+				E77A172D2319BF700078FFAE /* PhotoController.swift in Sources */,
 				E77A16EF23178A690078FFAE /* NetworkServiceConfiguration.swift in Sources */,
 				E767CA342317842800C99C48 /* PhotosViewController.swift in Sources */,
+				E77A17292319BEA90078FFAE /* PhotoModel.swift in Sources */,
 				E7FC025923178613000AC22B /* NetworkService.swift in Sources */,
 				E77A17192317DE9B0078FFAE /* PhotosViewModel.swift in Sources */,
 				E77A170B2317B0550078FFAE /* Constants.swift in Sources */,
 				E77A1702231795F90078FFAE /* Configurable.swift in Sources */,
 				E77A1704231797690078FFAE /* PhotoResponse.swift in Sources */,
+				E77A17262319BE0A0078FFAE /* PhotosModel.swift in Sources */,
 				E77A17142317D60D0078FFAE /* NetworkRequestable.swift in Sources */,
 				E77A17102317B0EE0078FFAE /* PhotoResponseConverter.swift in Sources */,
 				E77A16FB231791D10078FFAE /* PhotoViewController.swift in Sources */,
 				E77A171B2317F0C70078FFAE /* ImageParser.swift in Sources */,
+				E77A172B2319BF290078FFAE /* PhotosController.swift in Sources */,
 				E77A172323198D850078FFAE /* PhotoViewModel.swift in Sources */,
 				E77A17122317B1000078FFAE /* PhotoResponseConvertable.swift in Sources */,
 				E77A172123198B230078FFAE /* PhotoConfiguration.swift in Sources */,

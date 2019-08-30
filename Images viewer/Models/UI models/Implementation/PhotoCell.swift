@@ -18,10 +18,8 @@ class PhotoCell: UICollectionViewCell, Configurable {
     
     
     func configure(byPhoto photo: Photo) {
-        
-
-        
         lDescription.sizeToFit()
+        
         if let text = lDescription.text, text.isEmpty {
             lDescription.isHidden = true
         }
@@ -31,7 +29,6 @@ class PhotoCell: UICollectionViewCell, Configurable {
         lDataCreated.text = "Created: \(photo.created)"
         lDataUpdated.text = "Updated: \(photo.updated)"
         lDescription.text = createDescription(byPhoto: photo)
-        
     }
     
     private func createDescription(byPhoto photo: Photo) -> String {

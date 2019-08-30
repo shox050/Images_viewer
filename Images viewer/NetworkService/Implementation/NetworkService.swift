@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class NetworkService: NetworkRequestable {
-//    private let executionQueue = DispatchQueue(label: Constants.Identifiers.networkQueue, qos: .background, attributes: .concurrent)
+
     private let networkServiceConfiguration = NetworkServiceConfiguration()
     private let dictionaryEncoder = DictionaryEncoder()
     
@@ -55,7 +55,7 @@ class NetworkService: NetworkRequestable {
             return
             
         }
-
+        
         AF.request(url)
             .validate()
             .responseData { response in
@@ -66,7 +66,7 @@ class NetworkService: NetworkRequestable {
                     }
                     return
                 }
-
+                
                 completion(.success(dataResponse))
         }
     }

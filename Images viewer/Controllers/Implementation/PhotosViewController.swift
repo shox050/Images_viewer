@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, PhotosController {
     
     private var selectedPhoto: Photo?
     
@@ -86,10 +86,3 @@ extension PhotosViewController: UICollectionViewDelegate {
         performSegue(withIdentifier: Constants.SegueIdentifiers.showPhotoVC, sender: self)
     }
 }
-
-
-// MARK: - UICollectionViewFlowLayout
-extension PhotosViewController: UICollectionViewFlowLayout {
-    
-}
-

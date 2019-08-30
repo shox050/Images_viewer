@@ -8,13 +8,13 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
-
+class PhotoViewController: UIViewController, PhotoController {
+    
     @IBOutlet private weak var ivPhoto: UIImageView!
     @IBOutlet private weak var lDownloadTime: UILabel!
     
     
-    var photoViewModel: PhotoViewModel!
+    private var photoViewModel: PhotoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

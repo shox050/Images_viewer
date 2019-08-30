@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewModel {
+class PhotoViewModel: PhotoModel {
     private var photo: Photo
     
     var id: String {
