@@ -1,5 +1,5 @@
 //
-//  PhotoCell.swift
+//  Configurable.swift
 //  Images viewer
 //
 //  Created by Vladimir on 29/08/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PhotoCell {
-//    func configuration(with photo: Photo) 
+protocol Configurable {
+    func configure(byPhoto photo: Photo)
 }

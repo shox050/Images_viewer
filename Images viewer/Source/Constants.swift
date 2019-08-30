@@ -11,7 +11,8 @@ import Foundation
 struct Constants {
     struct Identifiers {
         static let networkQueue = "NetworkExecutionQueue"
-        static let collectionCell = "PhotoColletionViewCell"
+        static let photoQueue = "PhotoExecutionQueue"
+        static let collectionCell = "PhotoCell"
     }
     
     struct ParametersRequest {

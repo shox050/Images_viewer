@@ -15,5 +15,5 @@ struct Photo {
     let photoDescription: String?
     let alternativeDescription: String?
     let photoUrl: String
-    let photo: UIImage?
+    var photo: UIImage?
 }
