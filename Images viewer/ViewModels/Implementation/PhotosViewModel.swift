@@ -79,23 +79,15 @@ class PhotosViewModel: PhotosModel {
     }
     
     
-//    func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void) {
-//        guard let index = indexPaths.first?.row else { return }
-//        if photos.count - index == offset {
-//            getPhotos { [weak self] in
-//                guard let this = self else { return }
-//                this.getImage({ _ in
-//                })
-//                completion()
-//            }
-//        }
-//        if photos[index].image == nil {
-//            photos[index].image = imageCache.object(forKey: NSString(string: photos[index].id))
-//        }
-//    }
-//
-//
-//    func photoDidEndDisplaying(byIndexPath indexPath: IndexPath) {
-//            photos[indexPath.row].image = nil
-//    }
+    func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void) {
+        guard let index = indexPaths.first?.row else { return }
+        if photos.count - index == offset {
+            getPhotos { [weak self] in
+                guard let this = self else { return }
+                this.getImage({ _ in
+                })
+                completion()
+            }
+        }
+    }
 }
