@@ -86,8 +86,8 @@ class PhotosViewModel: PhotosModel {
             getPhotos { [weak self] in
                 guard let this = self else { return }
                 this.getImage({ _ in
-                    completion()
                 })
+                completion()
             }
         }
         if photos[index].image == nil {
@@ -97,8 +97,6 @@ class PhotosViewModel: PhotosModel {
     
     
     func photoDidEndDisplaying(byIndexPath indexPath: IndexPath) {
-        if indexPath.row > 2 {
             photos[indexPath.row].image = nil
-        }
     }
 }
