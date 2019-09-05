@@ -27,8 +27,5 @@ struct PhotoResponse: Decodable {
 }
 
 struct PhotoUrl: Decodable {
-//    let full: String
     let regular: String
-//    let small: String
-//    let thumb: String
 }

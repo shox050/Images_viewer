@@ -10,14 +10,14 @@ import Foundation
 
 struct Constants {
     struct Identifiers {
-        static let networkQueue = "NetworkExecutionQueue"
-        static let photoQueue = "PhotoExecutionQueue"
-        static let collectionCell = "PhotoCell"
+        static let networkQueue = "networkExecutionQueue"
+        static let photoQueue = "photoExecutionQueue"
+        static let photoCell = "photoCell"
         static let noImage =  "noImage.png"
     }
     
     struct SegueIdentifiers {
-        static let showPhotoVC = "ShowPhotoViewController"
+        static let showPhotoVC = "showPhotoViewController"
     }
     
     struct ParametersRequest {

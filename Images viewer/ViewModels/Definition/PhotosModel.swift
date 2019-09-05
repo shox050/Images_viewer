@@ -15,6 +15,6 @@ protocol PhotosModel {
     
     func getPhotos(_ completion: @escaping () -> Void)
     func getImage(_ completion: @escaping (Int) -> Void)
-    func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void)
-    func photoDidEndDisplaying(byIndexPath indexPath: IndexPath)
+//    func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void)
+//    func photoDidEndDisplaying(byIndexPath indexPath: IndexPath)
 }

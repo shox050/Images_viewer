@@ -13,13 +13,15 @@ class PhotoViewController: UIViewController, PhotoController {
     @IBOutlet private weak var ivPhoto: UIImageView!
     @IBOutlet private weak var lDownloadTime: UILabel!
     
-    
     private var photoViewModel: PhotoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ivPhoto.image = photoViewModel.image
+        if let image = ImageCache.cache.object(forKey: NSString(string: photoViewModel.id)) {
+            ivPhoto.image = image
+        }
+        
         lDownloadTime.text = photoViewModel.downloadDate
     }
 }

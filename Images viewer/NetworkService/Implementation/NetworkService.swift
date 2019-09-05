@@ -37,6 +37,9 @@ class NetworkService: NetworkRequestable {
                 print("Response not have a data")
                 return
             }
+            
+            print(response.request)
+            
             let decoder = JSONDecoder()
             do {
                 let photos = try decoder.decode([PhotoResponse].self, from: responseData)
