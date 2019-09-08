@@ -9,6 +9,7 @@
 import UIKit
 
 protocol PhotoModel {
-    var image: UIImage { get }
+//    var id: String { get }
+    var image: UIImage { get set }
     var downloadDate: String { get }
 }

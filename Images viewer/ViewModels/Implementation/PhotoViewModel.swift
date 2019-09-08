@@ -9,38 +9,34 @@
 import UIKit
 
 class PhotoViewModel: PhotoModel {
-    private var photo: Photo
+    private let photo: Photo
     
-    var id: String {
-        return photo.id
-    }
+    var image: UIImage
     
-    var created: String {
-        return photo.created
-    }
+//    var id: String {
+//        return photo.id
+//    }
+//
+//    var created: String {
+//        return photo.created
+//    }
+//
+//    var updated: String {
+//        return photo.updated
+//    }
+//
+//    var photoDescription: String {
+//        return photo.photoDescription ?? ""
+//    }
+//
+//    var alternativeDescription: String {
+//        return photo.alternativeDescription ?? ""
+//    }
+//
+//    var photoUrl: String {
+//        return photo.photoUrl
+//    }
     
-    var updated: String {
-        return photo.updated
-    }
-    
-    var photoDescription: String {
-        return photo.photoDescription ?? ""
-    }
-    
-    var alternativeDescription: String {
-        return photo.alternativeDescription ?? ""
-    }
-    
-    var photoUrl: String {
-        return photo.photoUrl
-    }
-    
-    var image: UIImage {
-        guard let image = photo.image else {
-            return UIImage(named: Constants.Identifiers.noImage)!
-        }
-        return image
-    }
     
     var downloadDate: String {
         let dateFormatter = DateFormatter()
@@ -49,7 +45,8 @@ class PhotoViewModel: PhotoModel {
         return "Download time: \(dateFormatter.string(from: photo.downloadDate))"
     }
     
-    init(_ photo: Photo) {
+    init(_ photo: Photo, image: UIImage) {
         self.photo = photo
+        self.image = image
     }
 }

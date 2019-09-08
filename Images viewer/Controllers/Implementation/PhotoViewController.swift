@@ -13,20 +13,28 @@ class PhotoViewController: UIViewController, PhotoController {
     @IBOutlet private weak var ivPhoto: UIImageView!
     @IBOutlet private weak var lDownloadTime: UILabel!
     
-    
     private var photoViewModel: PhotoViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ivPhoto.image = photoViewModel.image
-        lDownloadTime.text = photoViewModel.downloadDate
+        setUp()
     }
 }
 
 
 extension PhotoViewController {
     func configure(withConfiguration configuration: PhotoConfiguration) {
-        photoViewModel = PhotoViewModel(configuration.photo)
+        photoViewModel = PhotoViewModel(configuration.photo, image: configuration.image)
+    }
+    
+    private func setUp() {
+        guard photoViewModel != nil else {
+            print("photoViewModel: PhotoViewModel! is nil")
+            return
+        }
+        
+        ivPhoto?.image = photoViewModel.image
+        lDownloadTime?.text = photoViewModel.downloadDate
     }
 }

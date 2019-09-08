@@ -28,7 +28,7 @@ class PhotoResponseConverter: PhotoResponseConvertable {
             return Photo(id: id, created: created, updated: updated,
                          photoDescription: photoDescription,
                          alternativeDescription: alternativeDescription,
-                         photoUrl: photoUrl, image: photo, downloadDate: date)
+                         photoUrl: photoUrl, downloadDate: date)
         }
         
         return photos

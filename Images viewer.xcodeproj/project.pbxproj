@@ -18,7 +18,7 @@
 		E77A16F723178DE70078FFAE /* PhotosParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A16F623178DE70078FFAE /* PhotosParameters.swift */; };
 		E77A16FB231791D10078FFAE /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A16FA231791D10078FFAE /* PhotoViewController.swift */; };
 		E77A16FE231794CE0078FFAE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A16FD231794CE0078FFAE /* PhotoCell.swift */; };
-		E77A1702231795F90078FFAE /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A1701231795F90078FFAE /* Configurable.swift */; };
+		E77A1702231795F90078FFAE /* PhotoCellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A1701231795F90078FFAE /* PhotoCellConfigurable.swift */; };
 		E77A1704231797690078FFAE /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A1703231797690078FFAE /* PhotoResponse.swift */; };
 		E77A17082317AEDF0078FFAE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A17072317AEDF0078FFAE /* Photo.swift */; };
 		E77A170B2317B0550078FFAE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77A170A2317B0550078FFAE /* Constants.swift */; };
@@ -54,7 +54,7 @@
 		E77A16F623178DE70078FFAE /* PhotosParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosParameters.swift; sourceTree = "<group>"; };
 		E77A16FA231791D10078FFAE /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		E77A16FD231794CE0078FFAE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		E77A1701231795F90078FFAE /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		E77A1701231795F90078FFAE /* PhotoCellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellConfigurable.swift; sourceTree = "<group>"; };
 		E77A1703231797690078FFAE /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		E77A17072317AEDF0078FFAE /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		E77A170A2317B0550078FFAE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		E77A16FF231795A30078FFAE /* Definition */ = {
 			isa = PBXGroup;
 			children = (
-				E77A1701231795F90078FFAE /* Configurable.swift */,
+				E77A1701231795F90078FFAE /* PhotoCellConfigurable.swift */,
 			);
 			path = Definition;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 				E7FC025923178613000AC22B /* NetworkService.swift in Sources */,
 				E77A17192317DE9B0078FFAE /* PhotosViewModel.swift in Sources */,
 				E77A170B2317B0550078FFAE /* Constants.swift in Sources */,
-				E77A1702231795F90078FFAE /* Configurable.swift in Sources */,
+				E77A1702231795F90078FFAE /* PhotoCellConfigurable.swift in Sources */,
 				E77A1704231797690078FFAE /* PhotoResponse.swift in Sources */,
 				E77A17262319BE0A0078FFAE /* PhotosModel.swift in Sources */,
 				E77A17142317D60D0078FFAE /* NetworkRequestable.swift in Sources */,

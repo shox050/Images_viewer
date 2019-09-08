@@ -6,8 +6,9 @@
 //  Copyright © 2019 VladimirYakutin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PhotoConfiguration {
     var photo: Photo
+    var image: UIImage
 }

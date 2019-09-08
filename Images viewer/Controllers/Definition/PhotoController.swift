@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PhotoController {
-    
+    func configure(withConfiguration configuration: PhotoConfiguration)
 }
