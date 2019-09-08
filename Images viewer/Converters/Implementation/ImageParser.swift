@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageParser: ImageParsable {
-    func parseImage(fromData data: Data) -> UIImage? {
+    func parse(fromData data: Data) -> UIImage? {
         
         guard let image = UIImage(data: data) else {
             return nil

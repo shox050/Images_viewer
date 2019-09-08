@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ImageParsable {
-    func parseImage(fromData data: Data) -> UIImage?
+    func parse(fromData data: Data) -> UIImage?
 }

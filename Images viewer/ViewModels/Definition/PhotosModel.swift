@@ -6,15 +6,16 @@
 //  Copyright © 2019 VladimirYakutin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PhotosModel {
+    var selectedPhoto: Photo? { get set }
     var photos: [Photo] { get set }
     var newPhotos: [Photo] { get set }
     var numberPage: Int { get set }
     
-    func getPhotos(_ completion: @escaping () -> Void)
-    func getImage(_ completion: @escaping (Int) -> Void)
-//    func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void)
-//    func photoDidEndDisplaying(byIndexPath indexPath: IndexPath)
+    func downloadPhotos(_ completion: @escaping () -> Void)
+    func downloadImage(_ completion: @escaping (Int) -> Void)
+    func saveInCache(_ image: UIImage, byKey key: String)
+    func getImageFromCache(byKey key: String) -> UIImage?
 }

@@ -10,14 +10,14 @@ import UIKit
 
 class PhotosViewModel: PhotosModel {
     
+    var selectedPhoto: Photo?
     var photos: [Photo] = []
     var newPhotos: [Photo] = []
     var numberPage = 1
     
-    let perPage = Constants.ParametersRequest.photosPerPage
-    let offset = Constants.PrefetchingParameters.offset
-    
-//    private let imageCache = NSCache<NSString, UIImage>()
+    private let perPage = Constants.ParametersRequest.photosPerPage
+    private let offset = Constants.PrefetchingParameters.offset
+    private let imageCache = NSCache<NSString, UIImage>()
     private let networkService: NetworkRequestable = NetworkService()
     private let photoConverter: PhotoResponseConvertable = PhotoResponseConverter()
     private let imageParser: ImageParsable = ImageParser()
@@ -26,7 +26,7 @@ class PhotosViewModel: PhotosModel {
                                            attributes: .concurrent)
     
     
-    func getPhotos(_ completion: @escaping () -> Void) {
+    func downloadPhotos(_ completion: @escaping () -> Void) {
         photoQueue.async { [weak self] in
             guard let this = self else { return }
             
@@ -49,7 +49,7 @@ class PhotosViewModel: PhotosModel {
         }
     }
     
-    func getImage(_ completion: @escaping (Int) -> Void) {
+    func downloadImage(_ completion: @escaping (Int) -> Void) {
         photoQueue.async { [weak self] in
             guard let this = self else { return }
             
@@ -57,12 +57,12 @@ class PhotosViewModel: PhotosModel {
                 this.networkService.downloadImage(byPath: photo.photoUrl, { response in
                     switch response {
                     case .success(let data):
-                        guard let image = this.imageParser.parseImage(fromData: data) else {
+                        guard let image = this.imageParser.parse(fromData: data) else {
                             print("Parse image get nil")
                             return
                         }
                         
-                        ImageCache.cache.setObject(image, forKey: NSString(string: photo.id))
+                        this.saveInCache(image, byKey: photo.id)
                         
                         guard let index = this.photos.firstIndex(where: {
                             $0.id == photo.id
@@ -78,13 +78,21 @@ class PhotosViewModel: PhotosModel {
         }
     }
     
+    func saveInCache(_ image: UIImage, byKey key: String) {
+        imageCache.setObject(image, forKey: NSString(string: key))
+    }
+    
+    func getImageFromCache(byKey key: String) -> UIImage? {
+        return imageCache.object(forKey: NSString(string: key))
+    }
+    
     
     func preFetchingPhotos(byIndexPaths indexPaths: [IndexPath], _ completion: @escaping () -> Void) {
         guard let index = indexPaths.first?.row else { return }
         if photos.count - index == offset {
-            getPhotos { [weak self] in
+            downloadPhotos { [weak self] in
                 guard let this = self else { return }
-                this.getImage({ _ in
+                this.downloadImage({ _ in
                 })
                 completion()
             }

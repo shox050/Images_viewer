@@ -8,10 +8,8 @@
 
 import UIKit
 
-class PhotoCell: UITableViewCell, Configurable {
-    
-    private let imageCache = NSCache<NSString, UIImage>()
-    
+class PhotoCell: UITableViewCell, PhotoCellConfigurable {
+        
     @IBOutlet private weak var ivPhoto: UIImageView!
     @IBOutlet private weak var lPhotoId: UILabel!
     @IBOutlet private weak var lDateCreated: UILabel!
@@ -19,7 +17,7 @@ class PhotoCell: UITableViewCell, Configurable {
     @IBOutlet private weak var lDescription: UILabel!
     
     
-    func configure(byPhoto photo: Photo) {
+    func configure(byPhoto photo: Photo,with image: UIImage?) {
 
         if let text = lDescription.text, text.isEmpty {
             lDescription.isHidden = true
@@ -35,15 +33,6 @@ class PhotoCell: UITableViewCell, Configurable {
                 str += alternativeDescription
             }
             return str
-        }
-        
-        var image: UIImage? {
-
-            if let image = ImageCache.cache.object(forKey: NSString(string: photo.id)) {
-                return image
-            }
-
-            return nil
         }
 
         ivPhoto.image = image

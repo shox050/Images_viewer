@@ -9,11 +9,13 @@
 import UIKit
 
 class PhotoViewModel: PhotoModel {
-    private var photo: Photo
+    private let photo: Photo
     
-    var id: String {
-        return photo.id
-    }
+    var image: UIImage
+    
+//    var id: String {
+//        return photo.id
+//    }
 //
 //    var created: String {
 //        return photo.created
@@ -35,6 +37,7 @@ class PhotoViewModel: PhotoModel {
 //        return photo.photoUrl
 //    }
     
+    
     var downloadDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
@@ -42,7 +45,8 @@ class PhotoViewModel: PhotoModel {
         return "Download time: \(dateFormatter.string(from: photo.downloadDate))"
     }
     
-    init(_ photo: Photo) {
+    init(_ photo: Photo, image: UIImage) {
         self.photo = photo
+        self.image = image
     }
 }

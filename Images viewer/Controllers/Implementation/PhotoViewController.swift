@@ -18,17 +18,23 @@ class PhotoViewController: UIViewController, PhotoController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let image = ImageCache.cache.object(forKey: NSString(string: photoViewModel.id)) {
-            ivPhoto.image = image
-        }
-        
-        lDownloadTime.text = photoViewModel.downloadDate
+        setUp()
     }
 }
 
 
 extension PhotoViewController {
     func configure(withConfiguration configuration: PhotoConfiguration) {
-        photoViewModel = PhotoViewModel(configuration.photo)
+        photoViewModel = PhotoViewModel(configuration.photo, image: configuration.image)
+    }
+    
+    private func setUp() {
+        guard photoViewModel != nil else {
+            print("photoViewModel: PhotoViewModel! is nil")
+            return
+        }
+        
+        ivPhoto?.image = photoViewModel.image
+        lDownloadTime?.text = photoViewModel.downloadDate
     }
 }
